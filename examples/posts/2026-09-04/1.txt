@@ -1,0 +1,4 @@
+This text becomes the caption of 1.jpg.
+
+Write it however you like — line breaks are kept, and Urdu, Arabic or any other
+script works exactly as you typed it.

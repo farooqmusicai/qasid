@@ -1,0 +1,4 @@
+The second post. It goes out one gap after the first — three minutes later, if
+that is what you set.
+
+A .txt with no picture beside it, like this one, is sent as a plain message.

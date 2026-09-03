@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Qasid — post to your WhatsApp channel from a folder</title>
+<style>
+ :root{--ink:#17181a;--dim:#6a6d72;--line:#e4e2dd;--bg:#fbfaf8;--card:#fff;
+       --go:#1c7c4a;--warn:#8a5a00}
+ @media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+   --ink:#e8e6e1;--dim:#9a9da3;--line:#2c2f34;--bg:#131417;--card:#1a1c20;
+   --go:#5cc98d;--warn:#e0b665}}
+ *{box-sizing:border-box}
+ body{margin:0;background:var(--bg);color:var(--ink);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
+ .wrap{max-width:760px;margin:0 auto;padding:56px 22px 90px}
+ h1{font-size:44px;margin:0 0 6px;letter-spacing:-.02em}
+ h1 span{color:var(--dim);font-weight:400}
+ .lede{font-size:19px;color:var(--dim);margin:0 0 36px}
+ h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim);
+    margin:44px 0 12px}
+ .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+ pre{background:var(--card);border:1px solid var(--line);border-radius:10px;
+     padding:16px;overflow-x:auto;font:13.5px/1.6 ui-monospace,Consolas,monospace;margin:0}
+ code{font:13.5px ui-monospace,Consolas,monospace;background:var(--card);
+      border:1px solid var(--line);border-radius:5px;padding:1px 5px}
+ .warn{background:#fdf6e7;border:1px solid #f0dfb5;color:#5c4200;
+       border-radius:12px;padding:20px 22px;margin:0 0 34px}
+ @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .warn{
+   background:#2a2113;border-color:#4a3c1e;color:#e8d5a8}}
+ .warn strong{color:var(--warn)}
+ a{color:var(--go)}
+ .btn{display:inline-block;background:var(--go);color:#fff;text-decoration:none;
+      font-weight:600;padding:12px 22px;border-radius:9px;margin:6px 8px 0 0}
+ ul{padding-left:20px} li{margin:5px 0}
+ footer{color:var(--dim);font-size:14px;margin-top:52px;border-top:1px solid var(--line);padding-top:20px}
+</style>
+</head>
+<body><div class="wrap">
+
+<h1>Qasid <span>قاصد</span></h1>
+<p class="lede">Post to your own WhatsApp channel every day, from a folder on your
+own computer. No server, no account, no upload.</p>
+
+<div class="warn">
+<strong>Read this first.</strong> Automating WhatsApp Web is against WhatsApp's
+Terms of Service, and accounts can be banned for it. There is no official API for
+personal Channels, so there is no safe alternative — only the choice of whether
+to accept the risk. <strong>Do not use a number you cannot afford to lose.</strong>
+</div>
+
+<h2>How it works</h2>
+<div class="card">
+<p style="margin-top:0">You keep a folder. Qasid reads it and posts it.</p>
+<pre>MyPosts/
+  2026-09-04/
+      1.jpg
+      1.txt        &larr; the caption for 1.jpg
+      2.jpg
+      2.txt
+  2026-09-05/
+      1.jpg</pre>
+<ul style="margin-bottom:0">
+<li>One folder per date. Qasid posts today's and leaves the rest alone.</li>
+<li>A picture and a <code>.txt</code> of the same name go out together.</li>
+<li>A picture on its own is posted without a caption; a <code>.txt</code> on its
+    own is posted as a message.</li>
+<li>Start a filename with a time — <code>07-15 morning.jpg</code> — to give that
+    post its own hour.</li>
+</ul>
+</div>
+
+<h2>What it does not do</h2>
+<div class="card">
+<ul style="margin:0">
+<li>It is not a website you sign into. It runs on your machine.</li>
+<li>Your WhatsApp session never leaves your computer, and the page it opens is
+    reachable only from that computer.</li>
+<li>It will not send to lists of strangers, read your contacts, or post to groups.
+    Your own material, your own channel.</li>
+</ul>
+</div>
+
+<h2>Getting it</h2>
+<div class="card">
+<pre>git clone https://github.com/farooqmusicai/qasid.git
+cd qasid
+python -m pip install -r requirements.txt
+python -m playwright install chromium</pre>
+<p>Then run <code>START.bat</code> on Windows, or <code>./start.sh</code> on
+macOS and Linux. Your browser opens at <code>127.0.0.1:8770</code>, and the rest
+is on the page: choose the folder, add the channel, scan the QR code once.</p>
+<p style="margin-bottom:0">
+<a class="btn" href="https://github.com/farooqmusicai/qasid">Get it on GitHub</a>
+<a class="btn" style="background:transparent;color:var(--go);border:1px solid var(--line)"
+   href="https://github.com/farooqmusicai/qasid#readme">Read the manual</a></p>
+</div>
+
+<h2>One catch worth knowing</h2>
+<div class="card">
+<p style="margin:0">Qasid posts by driving a real browser, so the computer has to
+be switched on and awake when a post is due. It checks every 15 minutes and each
+channel has a window of a few hours, so a late start still goes out — but a
+sleeping computer posts nothing.</p>
+</div>
+
+<footer>
+MIT licensed. Built by Mohammad Farooq, out of a tool that posts daily to
+<a href="https://farooqstars.com">farooqstars.com</a> and
+<a href="https://farooqmusic.com">farooqmusic.com</a>.
+</footer>
+
+</div></body></html>

@@ -1,0 +1,4 @@
+This one ignores the gap and goes out at 20:00, because its filename starts with
+the time: "20-00 evening.txt".
+
+Use that when one post has to land at a particular hour.

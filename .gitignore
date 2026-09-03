@@ -1,0 +1,24 @@
+# Your WhatsApp login. Never commit this — it is a credential, and anyone who
+# downloads it can post as you.
+profile/
+
+# Your own material and your own history. The leading slash matters: this must
+# hide a posts/ folder at the top of the repo, and NOT examples/posts, which is
+# the sample every new user reads first.
+/posts/
+
+config.json
+state.json
+state.backup-*.json
+logs/
+probe/
+work/
+run.lock
+PAUSE
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+Thumbs.db
